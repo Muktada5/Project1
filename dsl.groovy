@@ -1,8 +1,8 @@
-multibranchPipelineJob("Reddy-groovy") {
+multibranchPipelineJob("DSL") {
     branchSources {
         git {
             id('Devops')
-            credentialsId('Bithub')
+            credentialsId('Github')
             remote('https://github.com/Devopsawsr/Docker.git')
             includes('*')  // Include all branches
         }
@@ -10,13 +10,6 @@ multibranchPipelineJob("Reddy-groovy") {
     orphanedItemStrategy {
         discardOldItems {
             numToKeep(-1)
-        }
-    }
-    configure {
-        def triggers = it / triggers
-        triggers << 'com.cloudbees.jenkins.plugins.BitBucketMultibranchTrigger' {
-            spec ''
-            overrideUrl('https://github.com/Devopsawsr/Docker.git')
         }
     }
 }
