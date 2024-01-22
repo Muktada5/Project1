@@ -4,7 +4,6 @@ pipeline {
         stage ("clone") {
             steps {
                 echo "cloning the code from Github"
-                checkout scm
             }
         }
         stage ("Deploy") {
