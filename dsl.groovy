@@ -21,6 +21,12 @@ multibranchPipelineJob('DSL') {
     }
     configure {
         def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
+        traits << 'jenkins.plugins.git.traits.BranchDiscoveryTrait' {
+            strategyId(3)
+        }
+    }
+    configure {
+        def traits = it / sources / data / 'jenkins.branch.BranchSource' / source / traits
         traits << 'jenkins.plugins.git.traits.TagDiscoveryTrait' {
             strategyId(3)
         }
