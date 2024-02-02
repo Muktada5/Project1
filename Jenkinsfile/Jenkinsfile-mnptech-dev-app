@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'flipkart'}
+    agent {label 'slave'}
     stages {
         stage ("clone") {
             steps {
